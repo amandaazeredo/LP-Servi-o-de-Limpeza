@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+.header {
+    background-color: white;
+    padding: 1rem 5%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Logo e empresa */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+   /* cursor: pointer;*/
+    transition: transform 0.3s ease;
+}
+/*
+.logo-area:hover {
+    transform: scale(1.05);
+}
+*/
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0a4352;
+}
+
+/* Menu principal */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-menu li {
+    cursor: pointer;
+    font-size: 1rem;
+    color: #0a4352;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-menu li:hover {
+    color: #315a68;
+}
+
+.nav-menu li::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #315a68;
+    transition: width 0.3s ease;
+}
+
+.nav-menu li:hover::after {
+    width: 100%;
+}
+
+/* Telefone */
+.phone-area {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: #0a4352;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.phone-area:hover {
+    transform: scale(1.05);
+    color: #315a68;
+}
+
+.phone-icon {
+    width: 40px;
+    height: 25px;
+}
+
+.phone-number {
+    font-size: 1rem;
+}
+
+/* Botão header */
+.btn-orcamento {
+    background-color: #315a68;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-orcamento:hover {
+    background-color: #0a4352;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(49, 90, 104, 0.3);
+}
+
+.btn-orcamento:active {
+    transform: translateY(0);
+}
+
+/* Menu mobile */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #0a4352;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .nav-menu {
+        gap: 1.2rem;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-container {
+        position: relative;
+    }
+
+    .phone-area {
+        order: 2;
+    }
+
+    .btn-orcamento {
+        order: 3;
+    }
+
+    .menu-toggle {
+        order: 4;
+    }
+
+    .nav-menu {
+        order: 5;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+    
+    .logo-area {
+        order: 1;
+    }
+    
+    .phone-area {
+        order: 2;
+    }
+    
+    .btn-orcamento {
+        order: 4;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu-toggle {
+        order: 3;
+    }
+    
+    .phone-number {
+        font-size: 0.9rem;
+    }
+}
+
+/* Header com scroll */
+.header-scrolled {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
