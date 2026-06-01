@@ -6,6 +6,8 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
 /* Header */
@@ -27,28 +29,34 @@ body {
     gap: 1rem;
 }
 
-/* Logo e empresa */
+/* Logo e empresa - CORRIGIDO alinhamento vertical */
 .logo-area {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-   /* cursor: pointer;*/
     transition: transform 0.3s ease;
 }
-/*
-.logo-area:hover {
-    transform: scale(1.05);
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
 }
-*/
+
 .logo-img {
     height: 50px;
     width: auto;
+    display: block;
 }
 
 .logo-text {
     font-size: 1.5rem;
     font-weight: bold;
     color: #0a4352;
+    line-height: 1; /* CORRIGIDO - garante alinhamento vertical */
+    display: inline-flex;
+    align-items: center;
 }
 
 /* Menu principal */
@@ -68,7 +76,17 @@ body {
     padding: 0.5rem 0;
 }
 
+.nav-menu li a {
+    color: #0a4352;
+    text-decoration: none;
+    display: block;
+}
+
 .nav-menu li:hover {
+    color: #315a68;
+}
+
+.nav-menu li:hover a {
     color: #315a68;
 }
 
@@ -113,6 +131,10 @@ body {
 }
 
 /* Botão header */
+.btn-orcamento-link {
+    text-decoration: none;
+}
+
 .btn-orcamento {
     background-color: #315a68;
     color: white;
@@ -144,7 +166,368 @@ body {
     color: #0a4352;
 }
 
+/* Main content */
+main {
+    min-height: calc(100vh - 200px);
+}
+
+.section {
+    padding: 4rem 5%;
+    scroll-margin-top: 80px;
+}
+
+.section:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #0a4352 0%, #315a68 100%);
+    color: white;
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* Títulos das seções */
+.section h2 {
+    color: #0a4352;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #315a68;
+    border-radius: 2px;
+}
+
+/* Serviços Grid - CORRIGIDO tamanho dos cards */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* CORRIGIDO - 4 colunas fixas */
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.servico-card {
+    background: white;
+    padding: 1.5rem; /* CORRIGIDO - padding reduzido */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    height: auto; /* CORRIGIDO - altura automática */
+    min-height: 180px; /* CORRIGIDO - altura mínima consistente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.servico-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(49, 90, 104, 0.2);
+    border-bottom: 3px solid #315a68;
+}
+
+.servico-card h3 {
+    color: #0a4352;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem; /* CORRIGIDO - tamanho da fonte ajustado */
+}
+
+.servico-card p {
+    color: #666;
+    line-height: 1.4; /* CORRIGIDO - espaçamento reduzido */
+    font-size: 0.9rem; /* CORRIGIDO - fonte menor para caber melhor */
+}
+
+/* Layout do Agendamento - Form à esquerda, Info à direita - CORRIGIDO */
+.agendamento-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.agendamento-form-container {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.agendamento-form {
+    max-width: 100%;
+    margin: 0;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+.agendamento-form h3 {
+    color: #0a4352;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.info-container {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-container h3 {
+    color: #0a4352;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-box {
+    background: #f8f9fa;
+    padding: 1.2rem;
+    border-radius: 10px;
+    border-left: 4px solid #315a68;
+    transition: transform 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateX(5px);
+}
+
+.info-box h4 {
+    color: #0a4352;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.info-box p {
+    color: #555;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+.whatsapp-small-btn {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0.5rem 1rem;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.whatsapp-small-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+}
+
+/* Formulário */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+    color: #0a4352;
+    font-size: 0.9rem;
+}
+
+.form-group label[for="email"]::after,
+.form-group label[for="assunto"]::after,
+.form-group label[for="cidade"]::after {
+    content: ' *';
+    color: #e74c3c;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #315a68;
+    box-shadow: 0 0 0 2px rgba(49, 90, 104, 0.1);
+}
+
+.btn-submit {
+    background-color: #315a68;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0a4352;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(49, 90, 104, 0.3);
+}
+
+/* Contatos Grid */
+.contatos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contato-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contato-info h3 {
+    color: #0a4352;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.contato-info p {
+    margin: 0.8rem 0;
+    color: #555;
+}
+
+.contato-info p strong {
+    color: #0a4352;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* Footer */
+.footer {
+    background-color: #0a4352;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* Mensagens */
+.mensagem {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    animation: fadeInUp 0.3s ease;
+}
+
+.mensagem.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.mensagem.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Responsividade */
+@media (max-width: 1024px) {
+    .servicos-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
+    }
+}
+
 @media (max-width: 992px) {
     .nav-menu {
         gap: 1.2rem;
@@ -152,6 +535,14 @@ body {
     
     .logo-text {
         font-size: 1.2rem;
+    }
+    
+    .section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
     }
 }
 
@@ -181,7 +572,7 @@ body {
         order: 2;
     }
 
-    .btn-orcamento {
+    .btn-orcamento-link {
         order: 3;
     }
 
@@ -191,6 +582,42 @@ body {
 
     .nav-menu {
         order: 5;
+    }
+    
+    .section {
+        padding: 3rem 5%;
+        scroll-margin-top: 70px;
+    }
+    
+    .hero-section {
+        min-height: 350px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+    
+    .servicos-grid {
+        grid-template-columns: 1fr; /* 1 coluna em mobile */
+        gap: 1rem;
+    }
+    
+    .servico-card {
+        min-height: auto;
+        padding: 1.2rem;
+    }
+    
+    .agendamento-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contatos-grid {
+        max-width: 100%;
     }
 }
 
@@ -207,8 +634,12 @@ body {
         order: 2;
     }
     
-    .btn-orcamento {
+    .btn-orcamento-link {
         order: 4;
+        width: 100%;
+    }
+    
+    .btn-orcamento {
         width: 100%;
         text-align: center;
     }
@@ -220,9 +651,136 @@ body {
     .phone-number {
         font-size: 0.9rem;
     }
+    
+    .section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-section {
+        min-height: 300px;
+        padding: 2rem;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    .logo-img {
+        height: 40px;
+    }
+    
+    .phone-icon {
+        width: 30px;
+        height: 20px;
+    }
+    
+    .btn-orcamento {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .agendamento-form-container,
+    .info-container {
+        padding: 1rem;
+    }
 }
 
 /* Header com scroll */
 .header-scrolled {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Efeitos adicionais */
+.btn-orcamento, .btn-submit {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-orcamento::after, .btn-submit::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-orcamento:active::after, .btn-submit:active::after {
+    width: 200px;
+    height: 200px;
+}
+
+/* Melhorias de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Estilização para foco */
+.nav-menu li a:focus,
+.btn-orcamento:focus,
+.btn-submit:focus,
+.phone-area:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #315a68;
+    outline-offset: 2px;
+}
+
+/* Tooltip para telefone */
+.phone-area {
+    position: relative;
+}
+
+.phone-area::before {
+    content: 'Clique para ligar';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0a4352;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.phone-area:hover::before {
+    opacity: 1;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #315a68;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0a4352;
 }
