@@ -6,6 +6,8 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
 /* Header */
@@ -68,7 +70,17 @@ body {
     padding: 0.5rem 0;
 }
 
+.nav-menu li a {
+    color: #0a4352;
+    text-decoration: none;
+    display: block;
+}
+
 .nav-menu li:hover {
+    color: #315a68;
+}
+
+.nav-menu li:hover a {
     color: #315a68;
 }
 
@@ -144,6 +156,253 @@ body {
     color: #0a4352;
 }
 
+/* Main content */
+main {
+    min-height: calc(100vh - 200px);
+}
+
+.section {
+    padding: 4rem 5%;
+    scroll-margin-top: 80px;
+}
+
+.section:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #0a4352 0%, #315a68 100%);
+    color: white;
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* Títulos das seções */
+.section h2 {
+    color: #0a4352;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #315a68;
+    border-radius: 2px;
+}
+
+/* Serviços Grid */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.servico-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.servico-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(49, 90, 104, 0.2);
+    border-bottom: 3px solid #315a68;
+}
+
+.servico-card h3 {
+    color: #0a4352;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.servico-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Formulário de Agendamento */
+.agendamento-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #0a4352;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #315a68;
+    box-shadow: 0 0 0 2px rgba(49, 90, 104, 0.1);
+}
+
+.btn-submit {
+    background-color: #315a68;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0a4352;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(49, 90, 104, 0.3);
+}
+
+/* Contatos Grid */
+.contatos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contato-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contato-info h3 {
+    color: #0a4352;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.contato-info p {
+    margin: 1rem 0;
+    color: #555;
+}
+
+.contato-info p strong {
+    color: #0a4352;
+}
+
+.mapa-placeholder {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #315a68;
+    color: #0a4352;
+}
+
+/* Footer */
+.footer {
+    background-color: #0a4352;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* Mensagens */
+.mensagem {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    animation: fadeInUp 0.3s ease;
+}
+
+.mensagem.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.mensagem.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Responsividade */
 @media (max-width: 992px) {
     .nav-menu {
@@ -152,6 +411,14 @@ body {
     
     .logo-text {
         font-size: 1.2rem;
+    }
+    
+    .section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
     }
 }
 
@@ -192,6 +459,33 @@ body {
     .nav-menu {
         order: 5;
     }
+    
+    .section {
+        padding: 3rem 5%;
+        scroll-margin-top: 70px;
+    }
+    
+    .hero-section {
+        min-height: 350px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+    
+    .servicos-grid,
+    .contatos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .agendamento-form {
+        padding: 1.5rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -220,9 +514,131 @@ body {
     .phone-number {
         font-size: 0.9rem;
     }
+    
+    .section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-section {
+        min-height: 300px;
+        padding: 2rem;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    .logo-img {
+        height: 40px;
+    }
+    
+    .phone-icon {
+        width: 30px;
+        height: 20px;
+    }
+    
+    .btn-orcamento {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
 }
 
 /* Header com scroll */
 .header-scrolled {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Efeitos adicionais */
+.btn-orcamento, .btn-submit {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-orcamento::after, .btn-submit::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-orcamento:active::after, .btn-submit:active::after {
+    width: 200px;
+    height: 200px;
+}
+
+/* Melhorias de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Estilização para foco */
+.nav-menu li a:focus,
+.btn-orcamento:focus,
+.btn-submit:focus,
+.phone-area:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #315a68;
+    outline-offset: 2px;
+}
+
+/* Tooltip para telefone */
+.phone-area {
+    position: relative;
+}
+
+.phone-area::before {
+    content: 'Clique para ligar';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0a4352;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.phone-area:hover::before {
+    opacity: 1;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #315a68;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0a4352;
 }

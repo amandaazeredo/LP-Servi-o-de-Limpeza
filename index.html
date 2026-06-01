@@ -11,30 +11,142 @@
         <div class="nav-container">
             <!-- Logo e nome -->
             <div class="logo-area">
-            <img src="Imagens/logo_solo.jpg" alt="Logo Limpeza NIT" class="logo-img">
-            <span class="logo-text">Limpeza NIT</span>    
+                <a href="#home" class="logo-link">
+                    <img src="Imagens/logo_solo.jpg" alt="Logo Limpeza NIT" class="logo-img">
+                    <span class="logo-text">Limpeza NIT</span>
+                </a>
             </div>
 
-            <!-- Menu principal -->
+            <div class="menu-toggle" onclick="toggleMenu()">
+                ☰
+            </div>
+
+            <!-- Menu -->
             <ul class="nav-menu" id="navMenu">
-                <li>Sobre Nós</li>
-                <li>Trabalhe Conosco</li>
-                <li>Agendamentos</li>
-                <li>Contatos</li>
+                <li><a href="#sobre-nos" class="nav-link">Sobre Nós</a></li>
+                <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                <li><a href="#agendamentos" class="nav-link">Agendamentos</a></li>
+                <li><a href="#contatos" class="nav-link">Contatos</a></li>
             </ul>
 
             <!-- Icone Telefone -->
-            <div class="phone-area">
+            <div class="phone-area" onclick="handlePhoneClick()">
                 <img src="Imagens/icone_tel.png" alt="Telefone" class="phone-icon">
                 <span class="phone-number">+21 99318-0404</span>
             </div>
 
             <!-- Botão Orçamento -->
-            <button class="btn-orcamento">Orçamento Gratuito</button>
+            <button class="btn-orcamento" onclick="handleOrcamento()">Orçamento Gratuito</button>
         </div>
     </header>
 
-  
+    <main>
+        <!-- Seção 1 -->
+        <section id="home" class="section hero-section">
+            <div class="container">
+                <h1>Bem-vindo à Limpeza NIT</h1>
+                <p>Soluções completas em limpeza e conservação</p>
+            </div>
+        </section>
+
+        <!-- Seção 2 -->
+        <section id="sobre-nos" class="section">
+            <div class="container">
+                <h2>Sobre Nós</h2>
+                <p>Com anos de experiência no mercado, somos especialistas em limpeza comercial. Nossa missão é proporcionar ambientes limpos, saudáveis e organizados para nossos clientes.</p>
+                <p>Oferecemos soluções completas de limpeza com foco na qualidade, segurança e satisfação do cliente. Nossa equipe utiliza técnicas modernas e produtos ecológicos.</p>
+            </div>
+        </section>
+
+        <!-- Seção 3 -->
+        <section id="servicos" class="section">
+            <div class="container">
+                <h2>Nossos Serviços</h2>
+                <div class="servicos-grid">
+                    <div class="servico-card">
+                        <h3>Qualidade Garantida</h3>
+                        <p>Profissionais treinados e produtos de alta qualidade para resultados excepcionais.</p>
+                    </div>
+                    <div class="servico-card">
+                        <h3>Pontualidade</h3>
+                        <p>SRespeitamos seus horários e cumprimos prazos estabelecidos.</p>
+                    </div>
+                    <div class="servico-card">
+                        <h3>Equipe Especializada</h3>
+                        <p>Nossa equipe atua com discrição e profissionalismo, adaptando-se à rotina da sua empresa.</p>
+                    </div>
+                    <div class="servico-card">
+                        <h3>Satisfação Garantida</h3>
+                        <p>Atendimento focado nas necessidades do cliente, buscando sempre superar expectativas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4 -->
+        <section id="agendamentos" class="section">
+            <div class="container">
+                <h2>Agendamentos</h2>
+                <form id="agendamento-form" class="agendamento-form">
+                    <div class="form-group">
+                        <label for="nome">Empresa:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="servico">Local do serviço:</label>
+                         <input type="servico" id="servico" name="servico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Data preferencial:</label>
+                        <input type="date" id="data" name="data" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem adicional:</label>
+                        <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Solicitar Agendamento</button>
+                </form>
+                <div id="agendamento-mensagem" class="mensagem"></div>
+            </div>
+        </section>
+
+        <!-- Seção 5 -->
+        <section id="contatos" class="section">
+            <div class="container">
+                <h2>Contatos</h2>
+                <div class="contatos-grid">
+                    <div class="contato-info">
+                        <h3>Informações de Contato</h3>
+                        <p><strong>Telefone:</strong> +21 99318-0404</p>
+                        <p><strong>E-mail:</strong> nitlimpezanitlimp@gmail.com</p>
+                        <p><strong>Redes Sociais:</strong> @limpezaniit</p>
+                        <p><strong>Horário de funcionamento:</strong> Segunda a Sexta, 8h às 18h</p>
+                    </div>
+                    <div class="contato-mapa">
+                        <h3>Localização</h3>
+                        <div class="mapa-placeholder">
+                            <p>🗺️ Mapa interativo - Rua Exemplo, 123, Rio de Janeiro - RJ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+<!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Fim</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
