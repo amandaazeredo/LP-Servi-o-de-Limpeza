@@ -136,7 +136,7 @@ body {
 }
 
 .btn-orcamento {
-    background-color: #315a68;
+    background-color: #25D366;
     color: white;
     font-weight: bold;
     border: none;
@@ -149,7 +149,7 @@ body {
 }
 
 .btn-orcamento:hover {
-    background-color: #0a4352;
+    background-color: #1d8343;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(49, 90, 104, 0.3);
 }
@@ -184,27 +184,113 @@ main {
     max-width: 1200px;
     margin: 0 auto;
 }
-
-/* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #0a4352 0%, #315a68 100%);
-    color: white;
+    position: relative;
+    background-image: url('Imagens/Fundo_bolhas.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    color: #0a4352;
     text-align: center;
-    min-height: 400px;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(6, 105, 129, 0.85) 0%, rgba(12, 110, 143, 0.85) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 .hero-section h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     animation: fadeInUp 0.8s ease;
+    text-shadow: 2px 2px 4px rgba(10, 67, 82, 0.85);
 }
 
 .hero-section p {
     font-size: 1.2rem;
     animation: fadeInUp 0.8s ease 0.2s both;
+    text-shadow: 1px 1px 2px rgba(10, 67, 82, 0.85);
+}
+
+/*
+.hero-section {
+    background-attachment: fixed;
+}
+*/
+
+
+.hero-overlay {
+    display: none;
+}
+
+
+.hero-section {
+    background-size: cover;
+    background-position: center;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section {
+        min-height: 450px;
+    }
+}
+
+/* Responsividade mobile */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 400px;
+        background-attachment: scroll; 
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+    
+    .hero-content {
+        padding: 1.5rem;
+    }
+}
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: 350px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-content {
+        padding: 1rem;
+    }
 }
 
 /* Títulos das seções */
@@ -783,4 +869,154 @@ textarea:focus {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #0a4352;
+}
+
+/* Seção de Orçamento - Layout corrigido */
+.orcamento-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.orcamento-form-container {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.orcamento-form {
+    max-width: 100%;
+    margin: 0;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+.orcamento-form h3 {
+    color: #0a4352;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+/* Seção de Agendamentos - Google Calendar */
+.agendamento-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.calendar-info-box {
+    background: linear-gradient(135deg, #0a4352 0%, #315a68 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.calendar-info-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.calendar-info-box p {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+.calendar-info-box strong {
+    color: #ffd700;
+}
+
+.google-calendar-wrapper {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.google-calendar-wrapper iframe {
+    border-radius: 8px;
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+
+.calendar-alternative {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.calendar-alternative p {
+    margin-bottom: 1rem;
+    color: #0a4352;
+    font-weight: 500;
+}
+
+.whatsapp-calendar-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-calendar-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* Ajustes responsivos para as novas seções */
+@media (max-width: 992px) {
+    .orcamento-layout {
+        gap: 1.5rem;
+    }
+    
+    .google-calendar-wrapper iframe {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .orcamento-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .google-calendar-wrapper iframe {
+        height: 400px;
+    }
+    
+    .calendar-info-box h3 {
+        font-size: 1.2rem;
+    }
+    
+    .calendar-info-box p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .google-calendar-wrapper iframe {
+        height: 350px;
+    }
+    
+    .calendar-info-box {
+        padding: 1rem;
+    }
+    
+    .whatsapp-calendar-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
 }

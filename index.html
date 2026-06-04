@@ -26,6 +26,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#sobre-nos" class="nav-link">Sobre Nós</a></li>
                 <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                <li><a href="#orcamento" class="nav-link">Solicitar Orçamento</a></li>
                 <li><a href="#agendamentos" class="nav-link">Agendamentos</a></li>
                 <li><a href="#contatos" class="nav-link">Contatos</a></li>
             </ul>
@@ -45,15 +46,16 @@
     </header>
 
     <main>
-        <!-- Seção 1 -->
+        <!-- Seção 1 - Home -->
         <section id="home" class="section hero-section">
-            <div class="container">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
                 <h1>Limpeza Profissional que sua empresa merece</h1>
                 <p>Transformamos seus espaços com serviços de limpeza de alta qualidade. Confie na nossa experiência e tenha mais tempo para o que realmente importa.</p>
             </div>
         </section>
 
-        <!-- Seção 2 -->
+        <!-- Seção 2 - Sobre Nós -->
         <section id="sobre-nos" class="section">
             <div class="container">
                 <h2>Sobre Nós</h2>
@@ -61,7 +63,7 @@
             </div>
         </section>
 
-        <!-- Seção 3 - Serviços Corrigida -->
+        <!-- Seção 3 - Serviços -->
         <section id="servicos" class="section">
             <div class="container">
                 <h2>Sobre Nossos Serviços</h2>
@@ -86,14 +88,14 @@
             </div>
         </section>
 
-        <!-- Seção 4 (ainda sem integração SMTP) -->
-        <section id="agendamentos" class="section">
+        <!-- Seção 4 - Solicitar Orçamento (Formulário) -->
+        <section id="orcamento" class="section">
             <div class="container">
-                <h2>Agendamentos</h2>
-                <div class="agendamento-layout">
+                <h2>Solicitar Orçamento</h2>
+                <div class="orcamento-layout">
                     <!-- Formulário -->
-                    <div class="agendamento-form-container">
-                        <form id="orcamento-form" class="agendamento-form">
+                    <div class="orcamento-form-container">
+                        <form id="orcamento-form" class="orcamento-form">
                             <h3>Formulário de Orçamento</h3>
                             
                             <div class="form-group">
@@ -163,7 +165,7 @@
                         <div id="form-mensagem" class="mensagem"></div>
                     </div>
 
-                    <!-- Coluna Direita - Informações adicionais sobre o formulario -->
+                    <!-- Coluna Direita - Informações adicionais -->
                     <div class="info-container">
                         <h3>Informações Importantes</h3>
                         <div class="info-content">
@@ -194,7 +196,42 @@
             </div>
         </section>
 
-        <!-- Seção Contatos -->
+        <!-- Seção 5 - Agendamentos com Google Calendar -->
+        <section id="agendamentos" class="section">
+            <div class="container">
+                <h2>Agendamentos</h2>
+                <div class="agendamento-container">
+                    <div class="calendar-info-box">
+                        <h3>📅 Agende seu horário</h3>
+                        <p>Selecione a data e horário disponíveis no calendário abaixo para agendar uma visita técnica ou serviço.</p>
+                        <p><strong>⚠️ Importante:</strong> Após agendar, nossa equipe entrará em contato para confirmar o horário e endereço.</p>
+                    </div>
+                    
+                    <!-- Google Calendar Iframe -->
+                    <div class="google-calendar-wrapper">
+                        <iframe 
+                            src="https://calendar.google.com/calendar/embed?src=seu-email%40gmail.com&ctz=America%2FSao_Paulo" 
+                            style="border: 0" 
+                            width="100%" 
+                            height="600" 
+                            frameborder="0" 
+                            scrolling="no">
+                        </iframe>
+                    </div>
+                    
+                    <div class="calendar-alternative">
+                        <p>📱 Prefere agendar por WhatsApp?</p>
+                        <a href="https://wa.me/5521993180404?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20para%20avaliação%20dos%20serviços%20de%20limpeza." 
+                           target="_blank" 
+                           class="whatsapp-calendar-btn">
+                            💬 Agendar pelo WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6 - Contatos -->
         <section id="contatos" class="section">
             <div class="container">
                 <h2>Contatos</h2>
