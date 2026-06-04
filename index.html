@@ -46,7 +46,7 @@
     </header>
 
     <main>
-        <!-- Seção 1 - Home -->
+        <!-- Seção 1 - Home com imagem de fundo -->
         <section id="home" class="section hero-section">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
@@ -55,34 +55,61 @@
             </div>
         </section>
 
-        <!-- Seção 2 - Sobre Nós -->
-        <section id="sobre-nos" class="section">
+        <!-- Seção 2 - Sobre Nós com imagem parallax -->
+        <section id="sobre-nos" class="section sobre-section">
             <div class="container">
-                <h2>Sobre Nós</h2>
-                <p>Com anos de experiência no mercado, somos especialistas em limpeza comercial. Nossa missão é proporcionar ambientes limpos, saudáveis e organizados para nossos clientes.</p>
+                <div class="sobre-container">
+                    <!-- Texto à esquerda -->
+                    <div class="sobre-texto">
+                        <h2>Sobre Nós</h2>
+                        <p>Com anos de experiência no mercado, somos especialistas em limpeza comercial. Nossa missão é proporcionar ambientes limpos, saudáveis e organizados para nossos clientes.</p>
+                        <p>Utilizamos produtos de alta qualidade e técnicas modernas para garantir os melhores resultados. Nossa equipe é treinada e capacitada para atender às necessidades específicas de cada cliente, sempre com profissionalismo e dedicação.</p>
+                        <p>Na Limpeza NIT, a satisfação do cliente é nossa prioridade. Trabalhamos com transparência, pontualidade e compromisso, garantindo serviços que superam as expectativas.</p>
+                        <div class="sobre-diferenciais">
+                            <div class="diferencial">
+                                <span>✓</span> Profissionais qualificados
+                            </div>
+                            <div class="diferencial">
+                                <span>✓</span> Produtos ecológicos
+                            </div>
+                            <div class="diferencial">
+                                <span>✓</span> Atendimento personalizado
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Imagem à direita com efeito parallax -->
+                    <div class="sobre-imagem">
+                        <div class="parallax-image" id="parallaxImage"></div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Seção 3 - Serviços -->
+        <!-- Seção 3 - Serviços Atualizada -->
         <section id="servicos" class="section">
             <div class="container">
-                <h2>Sobre Nossos Serviços</h2>
+                <h2>Nossos Serviços</h2>
                 <div class="servicos-grid">
                     <div class="servico-card">
-                        <h3>Qualidade Garantida</h3>
-                        <p>Profissionais treinados e produtos de alta qualidade para resultados excepcionais.</p>
+                        <h3>🏢 Limpeza e Conservação de Empresas</h3>
+                        <p>Ambientes sempre limpos, organizados e preparados para receber colaboradores e clientes com conforto e profissionalismo.</p>
                     </div>
                     <div class="servico-card">
-                        <h3>Pontualidade</h3>
-                        <p>Respeitamos seus horários e cumprimos prazos estabelecidos.</p>
+                        <h3>🏘️ Limpeza de Condomínios Residenciais</h3>
+                        <p>Cuidado completo das áreas comuns, contribuindo para a conservação, segurança e bem-estar dos moradores.</p>
                     </div>
                     <div class="servico-card">
-                        <h3>Equipe Especializada</h3>
-                        <p>Nossa equipe atua com discrição e profissionalismo, adaptando-se à rotina da sua empresa.</p>
+                        <h3>🪟 Limpeza de Vidros e Fachadas</h3>
+                        <p>Remoção de sujeiras e manchas para manter vidros e fachadas com excelente aparência e maior durabilidade.</p>
                     </div>
                     <div class="servico-card">
-                        <h3>Satisfação Garantida</h3>
-                        <p>Atendimento focado nas necessidades do cliente, buscando sempre superar expectativas.</p>
+                        <h3>🏗️ Limpeza Pós-Obra</h3>
+                        <p>Eliminação de resíduos, poeira e marcas da construção, deixando o espaço pronto para uso com segurança e praticidade.</p>
+                    </div>
+                    <div class="servico-card">
+                        <h3>🧴 Reposição de Materiais de Higiene</h3>
+                        <p>Monitoramento e abastecimento contínuo de itens essenciais, garantindo comodidade e higiene para todos os usuários.</p>
                     </div>
                 </div>
             </div>
@@ -106,6 +133,18 @@
                             <div class="form-group">
                                 <label for="assunto">Assunto *</label>
                                 <input type="text" id="assunto" name="assunto" value="Solicitação de Orçamento" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tipo-servico">Tipo de Serviço *</label>
+                                <select id="tipo-servico" name="tipo-servico" required>
+                                    <option value="">Selecione o serviço desejado</option>
+                                    <option value="limpeza-empresas">Limpeza e Conservação de Empresas</option>
+                                    <option value="limpeza-condominios">Limpeza de Condomínios Residenciais</option>
+                                    <option value="limpeza-vidros">Limpeza de Vidros e Fachadas</option>
+                                    <option value="limpeza-pos-obra">Limpeza Pós-Obra</option>
+                                    <option value="reposicao-materiais">Reposição de Materiais de Higiene</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
@@ -207,7 +246,7 @@
                         <p><strong>⚠️ Importante:</strong> Após agendar, nossa equipe entrará em contato para confirmar o horário e endereço.</p>
                     </div>
                     
-                    <!-- Google Calendar Iframe -->
+                    <!-- Google Calendar Iframe (não pronto, apenas visualização) -->
                     <div class="google-calendar-wrapper">
                         <iframe 
                             src="https://calendar.google.com/calendar/embed?src=seu-email%40gmail.com&ctz=America%2FSao_Paulo" 

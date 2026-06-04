@@ -48,8 +48,7 @@ document.addEventListener('click', function(event) {
         navMenu.classList.remove('active');
     }
 });
-
-// Validação visual do formulário (apenas mostra mensagem de sucesso simulada)
+// Validação visual do formulário de orçamento
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('orcamento-form');
     
@@ -57,12 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
             
-            // Coleta dados para validação
+            // Coletar dados para validação
             const email = document.getElementById('email').value.trim();
             const assunto = document.getElementById('assunto').value.trim();
+            const tipoServico = document.getElementById('tipo-servico').value;
             const cidade = document.getElementById('cidade').value;
             
-            // Valida campos obrigatórios
+            // Validar campos obrigatórios
             if (!email) {
                 showMessage('Por favor, informe seu e-mail.', 'erro');
                 document.getElementById('email').focus();
@@ -75,13 +75,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
+            if (!tipoServico) {
+                showMessage('Por favor, selecione o tipo de serviço desejado.', 'erro');
+                document.getElementById('tipo-servico').focus();
+                return;
+            }
+            
             if (!cidade) {
                 showMessage('Por favor, selecione sua cidade.', 'erro');
                 document.getElementById('cidade').focus();
                 return;
             }
             
-            // Valid formato do email
+            // Validar formato do email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showMessage('Por favor, insira um e-mail válido.', 'erro');
@@ -89,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Valida celular se preenchido
+            // Validar celular se preenchido
             const celular = document.getElementById('celular').value.trim();
             if (celular) {
                 const telefoneRegex = /^\([1-9]{2}\) [9]?[0-9]{4}-[0-9]{4}$/;
@@ -99,16 +105,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
             }
-            
+
             showMessage('Solicitação enviada com sucesso! Entraremos em contato em breve.', 'sucesso');
             
-            // form.reset();
-            // document.getElementById('assunto').value = 'Solicitação de Orçamento';
+            const tipoServicoText = document.getElementById('tipo-servico').options[document.getElementById('tipo-servico').selectedIndex].text;
             
-            // Exibir dados no console para debug (apenas visual)
+            // debug
             console.log('=== DADOS DO FORMULÁRIO ===');
             console.log('E-mail:', email);
             console.log('Assunto:', assunto);
+            console.log('Tipo de Serviço:', tipoServicoText);
             console.log('Cidade:', cidade);
             console.log('Celular:', celular || 'Não informado');
             console.log('Empresa:', document.getElementById('empresa').value.trim() || 'Não informado');
@@ -116,6 +122,10 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Cômodos:', document.getElementById('comodos').value || 'Não informado');
             console.log('Mensagem:', document.getElementById('mensagem').value.trim() || 'Não informada');
             console.log('========================');
+            
+          
+            // form.reset();
+            // document.getElementById('assunto').value = 'Solicitação de Orçamento';
         });
     }
     
@@ -142,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Validação de M² (apenas números positivos)
+    // Validação de m2 (apenas números positivos)
     const m2Input = document.getElementById('m2');
     if (m2Input) {
         m2Input.addEventListener('input', function(e) {
@@ -159,3 +169,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
+// Efeito  ao carregar a página
+window.addEventListener('load', function() {
+    const parallaxImage = document.getElementById('parallaxImage');
+    if (parallaxImage) {
+        parallaxImage.style.opacity = '0';
+        parallaxImage.style.transition = 'opacity 0.5s ease';
+        
+        setTimeout(() => {
+            parallaxImage.style.opacity = '1';
+        }, 100);
+    }
+});
