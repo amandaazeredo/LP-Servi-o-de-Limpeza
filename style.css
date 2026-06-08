@@ -1237,3 +1237,217 @@ textarea:focus {
         padding: 1.5rem;
     }
 }
+
+/* Google Calendar Wrapper - Responsivo */
+.google-calendar-wrapper {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.google-calendar-wrapper iframe {
+    border-radius: 8px;
+    width: 100%;
+    height: 600px;
+    border: none;
+    display: block;
+}
+
+/* Responsividade para o iframe do Google Calendar */
+@media (max-width: 992px) {
+    .google-calendar-wrapper iframe {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .google-calendar-wrapper {
+        padding: 0.5rem;
+    }
+    
+    .google-calendar-wrapper iframe {
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .google-calendar-wrapper iframe {
+        height: 350px;
+    }
+}
+
+/* Frase acima do calendário */
+.calendar-message {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #0a4352 0%, #315a68 100%);
+    border-radius: 8px;
+}
+
+.calendar-message p {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.calendar-message strong {
+    color: #ffd700;
+}
+
+/* Botão Agende aqui */
+.calendar-button-container {
+    text-align: center;
+    margin: 2rem 0 1rem;
+}
+
+.btn-agendar {
+    display: inline-block;
+    background-color: #27ae60;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.btn-agendar:hover {
+    background-color: #229954;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.btn-agendar:active {
+    transform: translateY(0);
+}
+
+/* Footer redesenhado */
+.footer {
+    background-color: #0a4352;
+    color: white;
+    text-align: center;
+    padding: 2rem 5%;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.footer-logo-img {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.footer-logo-text {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+}
+
+.footer-social h4 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #ffd700;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.social-link:hover {
+    background-color: #315a68;
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsividade do footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .btn-agendar {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .calendar-message p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .social-links {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .social-link {
+        justify-content: center;
+    }
+    
+    .btn-agendar {
+        width: 100%;
+        padding: 0.8rem;
+    }
+}
