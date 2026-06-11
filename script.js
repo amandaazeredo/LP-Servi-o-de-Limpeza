@@ -1,4 +1,10 @@
+//service_x487z28
+//template_bsqim2g
+//sbVgtNx51Cbnr3eKM
 // Menu mobile toggle
+
+emailjs.init("sbVgtNx51Cbnr3eKM");
+
 function toggleMenu() {
     const navMenu = document.getElementById('navMenu');
     navMenu.classList.toggle('active');
@@ -49,101 +55,36 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Configuração SMTP (usando o meu pessoal por enquanto)
-const SMTP_CONFIG = {
-    host: "smtp.gmail.com",
-    username: "manddzxz@gmail.com",
-    password: "osxw wpbz ebgc ffel",
-    to_email: "manddzxz@gmail.com"
-};
-
-// Função para enviar email via SMTP
+// Função para enviar email via EmailJS
 function enviarEmailSMTP(dados) {
-    return new Promise((resolve, reject) => {
-        // corpo do email em HTML
-        const corpoEmail = `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-                <div style="text-align: center; margin-bottom: 20px;">
-                    <h2 style="color: #0a4352;">📋 Nova Solicitação de Orçamento</h2>
-                    <p style="color: #666;">Limpeza NIT</p>
-                </div>
-                
-                <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                    <h3 style="color: #0a4352; margin-top: 0;">Dados do Cliente:</h3>
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <tr>
-                            <td style="padding: 8px 0;"><strong>📧 E-mail:</strong></td>
-                            <td style="padding: 8px 0;">${dados.email}</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px 0;"><strong>📝 Assunto:</strong></td>
-                            <td style="padding: 8px 0;">${dados.assunto}</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px 0;"><strong>📱 Celular:</strong></td>
-                            <td style="padding: 8px 0;">${dados.celular || 'Não informado'}</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px 0;"><strong>🏢 Empresa:</strong></td>
-                            <td style="padding: 8px 0;">${dados.empresa || 'Não informado'}</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                    <h3 style="color: #0a4352; margin-top: 0;">Informações do Serviço:</h3>
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <tr>
-                            <td style="padding: 8px 0;"><strong>🔧 Tipo de Serviço:</strong></td>
-                            <td style="padding: 8px 0;">${dados.tipoServico}</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px 0;"><strong>📍 Cidade:</strong></td>
-                            <td style="padding: 8px 0;">${dados.cidade}</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px 0;"><strong>📐 M² do local:</strong></td>
-                            <td style="padding: 8px 0;">${dados.m2 || 'Não informado'}</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px 0;"><strong>🚪 Quantidade de cômodos:</strong></td>
-                            <td style="padding: 8px 0;">${dados.comodos || 'Não informado'}</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                    <h3 style="color: #0a4352; margin-top: 0;">💬 Mensagem:</h3>
-                    <p style="margin: 0; line-height: 1.5;">${dados.mensagem || 'Nenhuma mensagem adicional'}</p>
-                </div>
-
-                <div style="text-align: center; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #999;">
-                    <p>Mensagem enviada através do formulário de orçamento do site Limpeza NIT</p>
-                    <p>Data do envio: ${new Date().toLocaleString('pt-BR')}</p>
-                </div>
-            </div>
-        `;
-
-        Email.send({
-            Host: SMTP_CONFIG.host,
-            Username: SMTP_CONFIG.username,
-            Password: SMTP_CONFIG.password,
-            To: SMTP_CONFIG.to_email,
-            From: dados.email,
-            Subject: `${dados.assunto} - ${dados.tipoServico}`,
-            Body: corpoEmail
-        }).then(
-            message => {
-                if (message === 'OK') {
-                    resolve(true);
-                } else {
-                    reject(new Error(message));
-                }
-            }
-        ).catch(error => {
-            reject(error);
-        });
-    });
+    const templateParams = {
+        to_email: 'manddzxz@gmail.com',
+        from_email: dados.email,
+        subject: `${dados.assunto} - ${dados.tipoServico}`,
+        message: `
+            NOVA SOLICITAÇÃO DE ORÇAMENTO - LIMPEZA NIT
+            
+            DADOS DO CLIENTE:
+            E-mail: ${dados.email}
+            Assunto: ${dados.assunto}
+            Celular: ${dados.celular || 'Não informado'}
+            Empresa: ${dados.empresa || 'Não informado'}
+            
+            INFORMAÇÕES DO SERVIÇO:
+            Tipo de Serviço: ${dados.tipoServico}
+            Cidade: ${dados.cidade}
+            M² do local: ${dados.m2 || 'Não informado'}
+            Quantidade de cômodos: ${dados.comodos || 'Não informado'}
+            
+            MENSAGEM:
+            ${dados.mensagem || 'Nenhuma mensagem adicional'}
+            
+            ---
+            Data do envio: ${new Date().toLocaleString('pt-BR')}
+        `
+    };
+    
+    return emailjs.send('service_x487z28', 'template_bsqim2g', templateParams);
 }
 
 // Função para mostrar mensagens
@@ -153,10 +94,8 @@ function showMessage(message, type) {
         mensagemDiv.textContent = message;
         mensagemDiv.className = `mensagem ${type}`;
         
-        // Scroll suave até a mensagem
         mensagemDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         
-        // Limpar mensagem após 5 segundos
         setTimeout(() => {
             mensagemDiv.textContent = '';
             mensagemDiv.className = 'mensagem';
@@ -172,13 +111,11 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener('submit', async function(event) {
             event.preventDefault();
             
-            // Coletar dados para validação
             const email = document.getElementById('email').value.trim();
             const assunto = document.getElementById('assunto').value.trim();
             const tipoServico = document.getElementById('tipo-servico').value;
             const cidade = document.getElementById('cidade').value;
             
-            // Validar campos obrigatórios
             if (!email) {
                 showMessage('Por favor, informe seu e-mail.', 'erro');
                 document.getElementById('email').focus();
@@ -203,7 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Validar formato do email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showMessage('Por favor, insira um e-mail válido.', 'erro');
@@ -211,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Validar celular se preenchido
             const celular = document.getElementById('celular').value.trim();
             if (celular) {
                 const telefoneRegex = /^\([1-9]{2}\) [9]?[0-9]{4}-[0-9]{4}$/;
@@ -223,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             const tipoServicoText = document.getElementById('tipo-servico').options[document.getElementById('tipo-servico').selectedIndex].text;
-            
             const empresa = document.getElementById('empresa').value.trim();
             const m2 = document.getElementById('m2').value;
             const comodos = document.getElementById('comodos').value;
@@ -241,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 mensagem: mensagem
             };
             
-            // Log no console 
             console.log('=== DADOS DO FORMULÁRIO ===');
             console.log('E-mail:', email);
             console.log('Assunto:', assunto);
@@ -254,36 +187,27 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Mensagem:', mensagem || 'Não informada');
             console.log('========================');
             
-            // carregamento
             const btnSubmit = document.querySelector('.btn-submit');
             const btnOriginalText = btnSubmit.textContent;
             btnSubmit.textContent = 'Enviando...';
             btnSubmit.disabled = true;
             
             try {
-                // Enviar email via SMTP
                 await enviarEmailSMTP(dadosFormulario);
                 showMessage('Solicitação enviada com sucesso! Entraremos em contato em breve.', 'sucesso');
                 
-                form.reset();
-                
                 console.log('=== EMAIL ENVIADO COM SUCESSO ===');
-                console.log('Destinatário:', SMTP_CONFIG.to_email);
-                console.log('Assunto:', `${assunto} - ${tipoServicoText}`);
-                console.log('===============================');
                 
             } catch (error) {
                 console.error('Erro ao enviar email:', error);
                 showMessage('Erro ao enviar solicitação. Tente novamente ou entre em contato pelo WhatsApp.', 'erro');
             } finally {
-                // Restaurar botão
                 btnSubmit.textContent = btnOriginalText;
                 btnSubmit.disabled = false;
             }
         });
     }
     
-    // Adiciona máscara para celular
     const celularInput = document.getElementById('celular');
     if (celularInput) {
         celularInput.addEventListener('input', function(e) {
@@ -306,7 +230,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Validação de m2 (apenas números positivos)
     const m2Input = document.getElementById('m2');
     if (m2Input) {
         m2Input.addEventListener('input', function(e) {
@@ -314,7 +237,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Validação de cômodos (apenas números positivos)
     const comodosInput = document.getElementById('comodos');
     if (comodosInput) {
         comodosInput.addEventListener('input', function(e) {
@@ -323,8 +245,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-// Efeito ao carregar a página
 window.addEventListener('load', function() {
     const parallaxImage = document.getElementById('parallaxImage');
     if (parallaxImage) {
