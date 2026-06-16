@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Limpeza NIT</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Favicon - imagem na janela do site -->
+    <link rel="icon" type="image/png" href="Imagens/logo_solo.jpg">
+    <link rel="shortcut icon" type="image/png" href="Imagens/logo_solo.jpg">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script></head>
 <body>
     <header class="header">
@@ -29,6 +32,14 @@
                 <li><a href="#orcamento" class="nav-link">Solicitar Orçamento</a></li>
                 <li><a href="#agendamentos" class="nav-link">Agendamentos</a></li>
                 <li><a href="#contatos" class="nav-link">Contatos</a></li>
+                <!-- Botão Orçamento no menu mobile -->
+                <li class="mobile-orcamento">
+                    <a href="https://wa.me/5521993180404?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20serviços%20de%20limpeza." 
+                       target="_blank" 
+                       class="btn-orcamento-mobile">
+                        Orçamento Gratuito
+                    </a>
+                </li>
             </ul>
 
             <div class="phone-area" onclick="handlePhoneClick()">
@@ -36,10 +47,10 @@
                 <span class="phone-number">+21 99318-0404</span>
             </div>
 
-            <!-- Botão link WhatsApp -->
+            <!-- Botão link WhatsApp - Desktop -->
             <a href="https://wa.me/5521993180404?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20serviços%20de%20limpeza." 
                target="_blank" 
-               class="btn-orcamento-link">
+               class="btn-orcamento-link desktop-only">
                 <button class="btn-orcamento">Orçamento Gratuito</button>
             </a>
         </div>
