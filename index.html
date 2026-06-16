@@ -12,17 +12,17 @@
 <body>
     <header class="header">
         <div class="nav-container">
+            <!-- Menu mobile - agora primeiro (à esquerda) -->
+            <div class="menu-toggle" onclick="toggleMenu()">
+                ☰
+            </div>
+            
             <!-- Logo e nome -->
             <div class="logo-area">
                 <a href="#home" class="logo-link">
                     <img src="Imagens/logo_solo.jpg" alt="Logo Limpeza NIT" class="logo-img">
                     <span class="logo-text">Limpeza NIT</span>
                 </a>
-            </div>
-
-            <!-- Menu mobile -->
-            <div class="menu-toggle" onclick="toggleMenu()">
-                ☰
             </div>
 
             <!-- Menu principal -->
@@ -77,6 +77,11 @@
             <div class="container">
                 <h2>Sobre Nós</h2>
                 <div class="sobre-container">
+                    <!-- Imagem - primeiro no mobile -->
+                    <div class="sobre-imagem mobile-first">
+                        <div class="parallax-image" id="parallaxImage"></div>
+                    </div>
+                    
                     <div class="sobre-texto">
                         <p>Com anos de experiência no mercado, somos especialistas em limpeza. Nossa missão é proporcionar ambientes limpos, saudáveis e organizados para nossos clientes.</p>
                         <p>Utilizamos produtos de alta qualidade e técnicas modernas para garantir os melhores resultados. Nossa equipe é treinada e capacitada para atender às necessidades específicas de cada cliente, sempre com profissionalismo e dedicação.</p>
@@ -92,10 +97,6 @@
                                 <span>✓</span> Atendimento personalizado
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="sobre-imagem">
-                        <div class="parallax-image" id="parallaxImage"></div>
                     </div>
                 </div>
             </div>
